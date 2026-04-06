@@ -1,5 +1,8 @@
-using MySql.Data.MySqlClient;
-using System.Data.Common;
+﻿using MySql.Data.MySqlClient;
+using System.Data; // এটি যোগ করা হয়েছে
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace csMysqlImageCrud
 {
@@ -27,10 +30,7 @@ namespace csMysqlImageCrud
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -39,9 +39,61 @@ namespace csMysqlImageCrud
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
+                /*pictureBox1.Image = Image.FromFile(ofd.FileName);
+                textBoxImagePath.Text = ofd.FileName;*/
+                if (pictureBox1.Image != null) pictureBox1.Image.Dispose();
+
                 pictureBox1.Image = Image.FromFile(ofd.FileName);
                 textBoxImagePath.Text = ofd.FileName;
+
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //check the connection when the form loads
+            //ctrl+k+s sorround with
+            /*  try
+              {
+                  dbCONN.getDatabaseConnection().Open();
+                  if(dbCONN.getDatabaseConnection().State == ConnectionState.Open)
+                  {
+                      MessageBox.Show("Connected To The Database.....");
+
+                  }
+              }
+              catch (Exception err)
+              {
+
+                  MessageBox.Show("Error " + err.Message);
+              }*/
+
+            try
+            {
+                MySqlConnection conn = dbCONN.getDatabaseConnection();
+
+                // যদি কানেকশন আগে থেকেই খোলা না থাকে তবে খুলুন
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                if (conn.State == ConnectionState.Open)
+                {
+                    MessageBox.Show("Connected To The Database Successfully!");
+
+                    // চেক করা শেষ হলে কানেকশন বন্ধ করে দিন
+                    conn.Close();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message);
+            }
+
+
+        }
+
+
     }
 }
