@@ -91,6 +91,17 @@ namespace csMysqlImageCrud
                 MessageBox.Show("Error: " + err.Message);
             }
 
+            finally
+            {
+                // MySqlConnection অবজেক্টটি ব্যবহার করে কানেকশন বন্ধ করতে হবে
+                MySqlConnection conn = dbCONN.getDatabaseConnection();
+
+                if (conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                    // MessageBox.Show("Database Connection Closed...."); // বারবার মেসেজ আসা বিরক্তিকর হতে পারে
+                }
+            }
 
         }
 
