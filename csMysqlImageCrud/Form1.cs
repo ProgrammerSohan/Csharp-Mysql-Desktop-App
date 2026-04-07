@@ -11,6 +11,9 @@ namespace csMysqlImageCrud
         // ডাটাবেস ক্লাসের অবজেক্ট তৈরি
         MysqlDatabaseConnection dbCONN = new MysqlDatabaseConnection();
 
+        MySqlCommand command;
+        string InsertString = "INSERT INTO `csharpimagecrud`(`FirstName`) VALUES (@FirstName)";
+
         public Form1()
         {
             InitializeComponent();
@@ -47,5 +50,39 @@ namespace csMysqlImageCrud
         private void label8_Click(object sender, EventArgs e) { }
         private void label4_Click(object sender, EventArgs e) { }
         private void panel1_Paint(object sender, PaintEventArgs e) { }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //insert data into mysql database when user clicks insert button
+            try
+            {
+                dbCONN.openDBConnection();
+                command = new MySqlCommand(InsertString, dbCONN.getDatabaseConnection());
+                command.Parameters.Add("@FirstName", MySqlDbType.VarChar).Value = textBoxFirstName.Text;
+                //check if data has been inserted
+                if (command.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Data Inserted Successfully............");
+                }
+                else
+                {
+                    MessageBox.Show("Data Failed To Insert Successfully........");
+                }
+            }
+            catch (Exception err)
+            {
+
+                MessageBox.Show("Error " + err);
+            }
+            finally
+            {
+                //release all command resources
+                command.Dispose();
+                //close database connection
+                dbCONN.closeDBConnection();
+
+            }
+
+        }
     }
 }

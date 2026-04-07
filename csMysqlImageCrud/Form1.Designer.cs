@@ -54,7 +54,7 @@
             textBox5 = new TextBox();
             textBox4 = new TextBox();
             textBox3 = new TextBox();
-            textBox2 = new TextBox();
+            textBoxFirstName = new TextBox();
             textBox1 = new TextBox();
             label9 = new Label();
             label8 = new Label();
@@ -89,7 +89,7 @@
             panel1.Controls.Add(textBox5);
             panel1.Controls.Add(textBox4);
             panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(textBoxFirstName);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label9);
             panel1.Controls.Add(label8);
@@ -214,6 +214,7 @@
             button2.TabIndex = 22;
             button2.Text = "INSERT";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // btnImage
             // 
@@ -305,12 +306,12 @@
             textBox3.Size = new Size(195, 23);
             textBox3.TabIndex = 12;
             // 
-            // textBox2
+            // textBoxFirstName
             // 
-            textBox2.Location = new Point(166, 54);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(195, 23);
-            textBox2.TabIndex = 11;
+            textBoxFirstName.Location = new Point(166, 54);
+            textBoxFirstName.Name = "textBoxFirstName";
+            textBoxFirstName.Size = new Size(195, 23);
+            textBoxFirstName.TabIndex = 11;
             // 
             // textBox1
             // 
@@ -432,7 +433,7 @@
         private Label label9;
         private Label label8;
         private TextBox textBox3;
-        private TextBox textBox2;
+        private TextBox textBoxFirstName;
         private TextBox textBox1;
         private TextBox textBox4;
         private TextBox textBoxImagePath;
