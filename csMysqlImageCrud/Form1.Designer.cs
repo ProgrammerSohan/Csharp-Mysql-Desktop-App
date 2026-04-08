@@ -51,9 +51,9 @@
             radioButton2 = new RadioButton();
             radioButton1 = new RadioButton();
             textBoxImagePath = new TextBox();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
+            textBoxImageName = new TextBox();
+            textBoxEmail = new TextBox();
+            textBoxLastName = new TextBox();
             textBoxFirstName = new TextBox();
             textBox1 = new TextBox();
             label9 = new Label();
@@ -86,9 +86,9 @@
             panel1.Controls.Add(radioButton2);
             panel1.Controls.Add(radioButton1);
             panel1.Controls.Add(textBoxImagePath);
-            panel1.Controls.Add(textBox5);
-            panel1.Controls.Add(textBox4);
-            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(textBoxImageName);
+            panel1.Controls.Add(textBoxEmail);
+            panel1.Controls.Add(textBoxLastName);
             panel1.Controls.Add(textBoxFirstName);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label9);
@@ -285,26 +285,26 @@
             textBoxImagePath.Size = new Size(195, 23);
             textBoxImagePath.TabIndex = 15;
             // 
-            // textBox5
+            // textBoxImageName
             // 
-            textBox5.Location = new Point(166, 306);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(195, 23);
-            textBox5.TabIndex = 14;
+            textBoxImageName.Location = new Point(166, 306);
+            textBoxImageName.Name = "textBoxImageName";
+            textBoxImageName.Size = new Size(195, 23);
+            textBoxImageName.TabIndex = 14;
             // 
-            // textBox4
+            // textBoxEmail
             // 
-            textBox4.Location = new Point(166, 147);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(195, 23);
-            textBox4.TabIndex = 13;
+            textBoxEmail.Location = new Point(166, 147);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(195, 23);
+            textBoxEmail.TabIndex = 13;
             // 
-            // textBox3
+            // textBoxLastName
             // 
-            textBox3.Location = new Point(166, 106);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(195, 23);
-            textBox3.TabIndex = 12;
+            textBoxLastName.Location = new Point(166, 106);
+            textBoxLastName.Name = "textBoxLastName";
+            textBoxLastName.Size = new Size(195, 23);
+            textBoxLastName.TabIndex = 12;
             // 
             // textBoxFirstName
             // 
@@ -432,12 +432,12 @@
         private Label label2;
         private Label label9;
         private Label label8;
-        private TextBox textBox3;
+        private TextBox textBoxLastName;
         private TextBox textBoxFirstName;
         private TextBox textBox1;
-        private TextBox textBox4;
+        private TextBox textBoxEmail;
         private TextBox textBoxImagePath;
-        private TextBox textBox5;
+        private TextBox textBoxImageName;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
         private CheckBox checkBox2;

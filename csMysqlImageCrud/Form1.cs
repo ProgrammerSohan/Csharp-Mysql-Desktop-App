@@ -12,7 +12,7 @@ namespace csMysqlImageCrud
         MysqlDatabaseConnection dbCONN = new MysqlDatabaseConnection();
 
         MySqlCommand command;
-        string InsertString = "INSERT INTO `csharpimagecrud`(`FirstName`) VALUES (@FirstName)";
+        string InsertString = "INSERT INTO `csharpimagecrud`(`FirstName`,`LastName`, `Email`, `ImagePath`) VALUES (@FirstName,@LastName,@Email,@ImagePath)";
 
         public Form1()
         {
@@ -59,6 +59,10 @@ namespace csMysqlImageCrud
                 dbCONN.openDBConnection();
                 command = new MySqlCommand(InsertString, dbCONN.getDatabaseConnection());
                 command.Parameters.Add("@FirstName", MySqlDbType.VarChar).Value = textBoxFirstName.Text;
+                command.Parameters.Add("@LastName", MySqlDbType.VarChar).Value = textBoxLastName.Text;
+                command.Parameters.Add("@Email", MySqlDbType.VarChar).Value = textBoxEmail.Text;
+                command.Parameters.Add("@ImagePath", MySqlDbType.VarChar).Value = textBoxImagePath.Text;
+
                 //check if data has been inserted
                 if (command.ExecuteNonQuery() == 1)
                 {
@@ -72,7 +76,7 @@ namespace csMysqlImageCrud
             catch (Exception err)
             {
 
-                MessageBox.Show("Error " + err);
+                MessageBox.Show("Error " + err.Message);
             }
             finally
             {
