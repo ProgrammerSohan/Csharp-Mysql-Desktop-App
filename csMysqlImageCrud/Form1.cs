@@ -3,6 +3,7 @@ using System.Data;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace csMysqlImageCrud
 {
@@ -32,8 +33,9 @@ namespace csMysqlImageCrud
 
                 pictureBox1.Image = Image.FromFile(ofd.FileName);
                 textBoxImagePath.Text = ofd.FileName;
+                textBoxImageName.Text = Path.GetFileName(ofd.FileName);
             }
-        }
+        }   
 
         // ফর্ম যখন লোড হবে তখন এই মেথডটি রান করবে
         private void Form1_Load(object sender, EventArgs e)
@@ -86,6 +88,11 @@ namespace csMysqlImageCrud
                 dbCONN.closeDBConnection();
 
             }
+
+        }
+
+        private void textBoxImageName_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

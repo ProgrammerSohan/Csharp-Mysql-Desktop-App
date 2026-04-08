@@ -291,6 +291,7 @@
             textBoxImageName.Name = "textBoxImageName";
             textBoxImageName.Size = new Size(195, 23);
             textBoxImageName.TabIndex = 14;
+            textBoxImageName.TextChanged += textBoxImageName_TextChanged;
             // 
             // textBoxEmail
             // 
