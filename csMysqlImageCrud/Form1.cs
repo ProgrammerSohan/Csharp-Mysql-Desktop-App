@@ -13,7 +13,7 @@ namespace csMysqlImageCrud
         MysqlDatabaseConnection dbCONN = new MysqlDatabaseConnection();
 
         MySqlCommand command;
-        string InsertString = "INSERT INTO `csharpimagecrud`(`FirstName`,`LastName`, `Email`, `ImagePath`) VALUES (@FirstName,@LastName,@Email,@ImagePath)";
+        string InsertString = "INSERT INTO `csharpimagecrud`(`FirstName`,`LastName`, `Email`, `ImageName`, `ImagePath`) VALUES (@FirstName,@LastName,@Email,@ImageName, @ImagePath)";
 
         public Form1()
         {
@@ -63,6 +63,7 @@ namespace csMysqlImageCrud
                 command.Parameters.Add("@FirstName", MySqlDbType.VarChar).Value = textBoxFirstName.Text;
                 command.Parameters.Add("@LastName", MySqlDbType.VarChar).Value = textBoxLastName.Text;
                 command.Parameters.Add("@Email", MySqlDbType.VarChar).Value = textBoxEmail.Text;
+                command.Parameters.Add("@ImageName", MySqlDbType.VarChar).Value = textBoxImageName.Text;
                 command.Parameters.Add("@ImagePath", MySqlDbType.VarChar).Value = textBoxImagePath.Text;
 
                 //check if data has been inserted
