@@ -13,7 +13,8 @@ namespace csMysqlImageCrud
         MysqlDatabaseConnection dbCONN = new MysqlDatabaseConnection();
 
         MySqlCommand command;
-        string InsertString = "INSERT INTO `csharpimagecrud`(`FirstName`,`LastName`, `Email`, `ImageName`, `ImagePath`) VALUES (@FirstName,@LastName,@Email,@ImageName, @ImagePath)";
+        string InsertString = "INSERT INTO `csharpimagecrud`(`FirstName`,`LastName`, `Email`,`Gender`, `ImageName`, `ImagePath`) VALUES (@FirstName,@LastName,@Email,@Gender,@ImageName, @ImagePath)";
+        string radioButtonValueGender = "";
 
         public Form1()
         {
@@ -35,7 +36,7 @@ namespace csMysqlImageCrud
                 textBoxImagePath.Text = ofd.FileName;
                 textBoxImageName.Text = Path.GetFileName(ofd.FileName);
             }
-        }   
+        }
 
         // ফর্ম যখন লোড হবে তখন এই মেথডটি রান করবে
         private void Form1_Load(object sender, EventArgs e)
@@ -58,11 +59,26 @@ namespace csMysqlImageCrud
             //insert data into mysql database when user clicks insert button
             try
             {
+                //check whick buttonn is checked
+                if (radioButtonMale.Checked)
+                {
+                    radioButtonValueGender = "Male";
+
+                }
+                else
+                if (radioButtonFemale.Checked)
+                {
+
+                    radioButtonValueGender = "Female";
+
+                }
+
                 dbCONN.openDBConnection();
                 command = new MySqlCommand(InsertString, dbCONN.getDatabaseConnection());
                 command.Parameters.Add("@FirstName", MySqlDbType.VarChar).Value = textBoxFirstName.Text;
                 command.Parameters.Add("@LastName", MySqlDbType.VarChar).Value = textBoxLastName.Text;
                 command.Parameters.Add("@Email", MySqlDbType.VarChar).Value = textBoxEmail.Text;
+                command.Parameters.Add("@Gender", MySqlDbType.VarChar).Value = radioButtonValueGender;
                 command.Parameters.Add("@ImageName", MySqlDbType.VarChar).Value = textBoxImageName.Text;
                 command.Parameters.Add("@ImagePath", MySqlDbType.VarChar).Value = textBoxImagePath.Text;
 
@@ -92,9 +108,6 @@ namespace csMysqlImageCrud
 
         }
 
-        private void textBoxImageName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
