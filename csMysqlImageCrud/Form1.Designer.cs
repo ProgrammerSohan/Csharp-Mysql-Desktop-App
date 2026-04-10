@@ -46,8 +46,8 @@
             button2 = new Button();
             btnImage = new Button();
             comboBox1 = new ComboBox();
-            checkBox2 = new CheckBox();
-            checkBox1 = new CheckBox();
+            checkBoxArabic = new CheckBox();
+            checkBoxEnglish = new CheckBox();
             radioButtonFemale = new RadioButton();
             radioButtonMale = new RadioButton();
             textBoxImagePath = new TextBox();
@@ -81,8 +81,8 @@
             panel1.Controls.Add(button2);
             panel1.Controls.Add(btnImage);
             panel1.Controls.Add(comboBox1);
-            panel1.Controls.Add(checkBox2);
-            panel1.Controls.Add(checkBox1);
+            panel1.Controls.Add(checkBoxArabic);
+            panel1.Controls.Add(checkBoxEnglish);
             panel1.Controls.Add(radioButtonFemale);
             panel1.Controls.Add(radioButtonMale);
             panel1.Controls.Add(textBoxImagePath);
@@ -240,25 +240,25 @@
             comboBox1.Size = new Size(193, 23);
             comboBox1.TabIndex = 20;
             // 
-            // checkBox2
+            // checkBoxArabic
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(271, 257);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(60, 19);
-            checkBox2.TabIndex = 19;
-            checkBox2.Text = "Arabic";
-            checkBox2.UseVisualStyleBackColor = true;
+            checkBoxArabic.AutoSize = true;
+            checkBoxArabic.Location = new Point(271, 257);
+            checkBoxArabic.Name = "checkBoxArabic";
+            checkBoxArabic.Size = new Size(60, 19);
+            checkBoxArabic.TabIndex = 19;
+            checkBoxArabic.Text = "Arabic";
+            checkBoxArabic.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // checkBoxEnglish
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(166, 257);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(64, 19);
-            checkBox1.TabIndex = 18;
-            checkBox1.Text = "English";
-            checkBox1.UseVisualStyleBackColor = true;
+            checkBoxEnglish.AutoSize = true;
+            checkBoxEnglish.Location = new Point(166, 257);
+            checkBoxEnglish.Name = "checkBoxEnglish";
+            checkBoxEnglish.Size = new Size(64, 19);
+            checkBoxEnglish.TabIndex = 18;
+            checkBoxEnglish.Text = "English";
+            checkBoxEnglish.UseVisualStyleBackColor = true;
             // 
             // radioButtonFemale
             // 
@@ -444,8 +444,8 @@
         private TextBox textBoxImageName;
         private RadioButton radioButtonMale;
         private RadioButton radioButtonFemale;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
+        private CheckBox checkBoxArabic;
+        private CheckBox checkBoxEnglish;
         private ComboBox comboBox1;
         private Button button5;
         private Button button4;

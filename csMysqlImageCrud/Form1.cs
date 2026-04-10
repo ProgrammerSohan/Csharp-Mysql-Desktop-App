@@ -13,8 +13,9 @@ namespace csMysqlImageCrud
         MysqlDatabaseConnection dbCONN = new MysqlDatabaseConnection();
 
         MySqlCommand command;
-        string InsertString = "INSERT INTO `csharpimagecrud`(`FirstName`,`LastName`, `Email`,`Gender`, `ImageName`, `ImagePath`) VALUES (@FirstName,@LastName,@Email,@Gender,@ImageName, @ImagePath)";
+        string InsertString = "INSERT INTO `csharpimagecrud`(`FirstName`,`LastName`, `Email`,`Gender`,`Language`, `ImageName`, `ImagePath`) VALUES (@FirstName,@LastName,@Email,@Gender,@Language,@ImageName, @ImagePath)";
         string radioButtonValueGender = "";
+        string languageCheckBox = "";
 
         public Form1()
         {
@@ -73,12 +74,25 @@ namespace csMysqlImageCrud
 
                 }
 
-                dbCONN.openDBConnection();
+                //check which checkbox is checked
+                if (checkBoxEnglish.Checked)
+                {
+                    languageCheckBox = "English";
+
+                }
+                else  
+                    if(checkBoxArabic.Checked)
+                {
+                    languageCheckBox = "Arabic";
+                }
+
+                    dbCONN.openDBConnection();
                 command = new MySqlCommand(InsertString, dbCONN.getDatabaseConnection());
                 command.Parameters.Add("@FirstName", MySqlDbType.VarChar).Value = textBoxFirstName.Text;
                 command.Parameters.Add("@LastName", MySqlDbType.VarChar).Value = textBoxLastName.Text;
                 command.Parameters.Add("@Email", MySqlDbType.VarChar).Value = textBoxEmail.Text;
                 command.Parameters.Add("@Gender", MySqlDbType.VarChar).Value = radioButtonValueGender;
+                command.Parameters.Add("@Language", MySqlDbType.VarChar).Value = languageCheckBox;
                 command.Parameters.Add("@ImageName", MySqlDbType.VarChar).Value = textBoxImageName.Text;
                 command.Parameters.Add("@ImagePath", MySqlDbType.VarChar).Value = textBoxImagePath.Text;
 
