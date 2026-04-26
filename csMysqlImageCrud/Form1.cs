@@ -13,9 +13,10 @@ namespace csMysqlImageCrud
         MysqlDatabaseConnection dbCONN = new MysqlDatabaseConnection();
 
         MySqlCommand command;
-        string InsertString = "INSERT INTO `csharpimagecrud`(`FirstName`,`LastName`, `Email`,`Gender`,`Language`, `ImageName`, `ImagePath`) VALUES (@FirstName,@LastName,@Email,@Gender,@Language,@ImageName, @ImagePath)";
+        string InsertString = "INSERT INTO `csharpimagecrud`(`FirstName`,`LastName`, `Email`,`Gender`,`Language`,`Country`, `ImageName`, `ImagePath`) VALUES (@FirstName,@LastName,@Email,@Gender,@Language,@Country, @ImageName, @ImagePath)";
         string radioButtonValueGender = "";
         string languageCheckBox = "";
+        string countryCombobox;
 
         public Form1()
         {
@@ -85,6 +86,7 @@ namespace csMysqlImageCrud
                 {
                     languageCheckBox = "Arabic";
                 }
+                countryCombobox = comboBoxCountry.SelectedItem.ToString();
 
                     dbCONN.openDBConnection();
                 command = new MySqlCommand(InsertString, dbCONN.getDatabaseConnection());
@@ -93,6 +95,7 @@ namespace csMysqlImageCrud
                 command.Parameters.Add("@Email", MySqlDbType.VarChar).Value = textBoxEmail.Text;
                 command.Parameters.Add("@Gender", MySqlDbType.VarChar).Value = radioButtonValueGender;
                 command.Parameters.Add("@Language", MySqlDbType.VarChar).Value = languageCheckBox;
+                command.Parameters.Add("@Country", MySqlDbType.VarChar).Value = countryCombobox;
                 command.Parameters.Add("@ImageName", MySqlDbType.VarChar).Value = textBoxImageName.Text;
                 command.Parameters.Add("@ImagePath", MySqlDbType.VarChar).Value = textBoxImagePath.Text;
 

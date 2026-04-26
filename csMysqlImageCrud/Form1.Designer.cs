@@ -45,7 +45,7 @@
             button3 = new Button();
             button2 = new Button();
             btnImage = new Button();
-            comboBox1 = new ComboBox();
+            comboBoxCountry = new ComboBox();
             checkBoxArabic = new CheckBox();
             checkBoxEnglish = new CheckBox();
             radioButtonFemale = new RadioButton();
@@ -80,7 +80,7 @@
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(btnImage);
-            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(comboBoxCountry);
             panel1.Controls.Add(checkBoxArabic);
             panel1.Controls.Add(checkBoxEnglish);
             panel1.Controls.Add(radioButtonFemale);
@@ -231,14 +231,14 @@
             btnImage.UseVisualStyleBackColor = true;
             btnImage.Click += button1_Click;
             // 
-            // comboBox1
+            // comboBoxCountry
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "USA", "UK", "Canada", "Australia", "India", "Bangladesh" });
-            comboBox1.Location = new Point(166, 304);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(193, 23);
-            comboBox1.TabIndex = 20;
+            comboBoxCountry.FormattingEnabled = true;
+            comboBoxCountry.Items.AddRange(new object[] { "USA", "UK", "Canada", "Australia", "India", "Bangladesh" });
+            comboBoxCountry.Location = new Point(166, 304);
+            comboBoxCountry.Name = "comboBoxCountry";
+            comboBoxCountry.Size = new Size(193, 23);
+            comboBoxCountry.TabIndex = 20;
             // 
             // checkBoxArabic
             // 
@@ -446,7 +446,7 @@
         private RadioButton radioButtonFemale;
         private CheckBox checkBoxArabic;
         private CheckBox checkBoxEnglish;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxCountry;
         private Button button5;
         private Button button4;
         private Button button3;
