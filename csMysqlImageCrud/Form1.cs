@@ -64,6 +64,7 @@ namespace csMysqlImageCrud
                 table = new DataTable();
                 adapter.Fill(table);
 
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dataGridView1.DataSource = table;
 
 
