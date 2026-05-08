@@ -65,6 +65,7 @@ namespace csMysqlImageCrud
                 adapter.Fill(table);
 
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView1.RowTemplate.Height = 70;
                 dataGridView1.DataSource = table;
 
 
