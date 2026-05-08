@@ -1,9 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
-using System.Data;
 using System;
+using System.Data;
 using System.Drawing;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+
 
 namespace csMysqlImageCrud
 {
@@ -49,6 +51,37 @@ namespace csMysqlImageCrud
 
             // চেক করা শেষ হলে কানেকশন ক্লোজ করে দিন
             dbCONN.closeDBConnection();
+
+            string sqlSelectAllData = "SELECT* FROM `csharpimagecrud` ";
+            MySqlCommand command;
+            MySqlDataAdapter adapter;
+            DataTable table;
+
+            try
+            {
+                command = new MySqlCommand(sqlSelectAllData, dbCONN.getDatabaseConnection());
+                adapter = new MySqlDataAdapter(command);
+                table = new DataTable();
+                adapter.Fill(table);
+
+                dataGridView1.DataSource = table;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message);
+
+
+            }
+            finally
+            {
+
+               // command.Dispose();
+                dbCONN.closeDBConnection();
+            }
+
+
         }
 
         // এই মেথডগুলো অটো জেনারেটেড, এগুলো এভাবেই থাক
@@ -81,8 +114,8 @@ namespace csMysqlImageCrud
                     languageCheckBox = "English";
 
                 }
-                else  
-                    if(checkBoxArabic.Checked)
+                else
+                    if (checkBoxArabic.Checked)
                 {
                     languageCheckBox = "Arabic";
                 }
@@ -92,7 +125,7 @@ namespace csMysqlImageCrud
                 pictureBox1.Image.Save(ms, pictureBox1.Image.RawFormat);
                 Byte[] img = ms.ToArray();
 
-                    dbCONN.openDBConnection();
+                dbCONN.openDBConnection();
                 command = new MySqlCommand(InsertString, dbCONN.getDatabaseConnection());
                 command.Parameters.Add("@FirstName", MySqlDbType.VarChar).Value = textBoxFirstName.Text;
                 command.Parameters.Add("@LastName", MySqlDbType.VarChar).Value = textBoxLastName.Text;
@@ -132,6 +165,5 @@ namespace csMysqlImageCrud
 
         }
 
-       
     }
 }

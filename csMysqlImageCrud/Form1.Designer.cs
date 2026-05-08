@@ -31,15 +31,6 @@
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             dataGridView1 = new DataGridView();
-            FIRSTNAME = new DataGridViewTextBoxColumn();
-            LASTNAME = new DataGridViewTextBoxColumn();
-            EMAIL = new DataGridViewTextBoxColumn();
-            GENDER = new DataGridViewTextBoxColumn();
-            LANGUAGE = new DataGridViewTextBoxColumn();
-            COUNTRY = new DataGridViewTextBoxColumn();
-            IMAGENAME = new DataGridViewTextBoxColumn();
-            IMAGEPATH = new DataGridViewTextBoxColumn();
-            IMAGE = new DataGridViewTextBoxColumn();
             button5 = new Button();
             button4 = new Button();
             button3 = new Button();
@@ -118,65 +109,14 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { FIRSTNAME, LASTNAME, EMAIL, GENDER, LANGUAGE, COUNTRY, IMAGENAME, IMAGEPATH, IMAGE });
             dataGridView1.Location = new Point(0, 434);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.Size = new Size(1269, 305);
             dataGridView1.TabIndex = 26;
-            // 
-            // FIRSTNAME
-            // 
-            FIRSTNAME.HeaderText = "FIRSTNAME";
-            FIRSTNAME.Name = "FIRSTNAME";
-            FIRSTNAME.Resizable = DataGridViewTriState.True;
-            FIRSTNAME.Width = 180;
-            // 
-            // LASTNAME
-            // 
-            LASTNAME.HeaderText = "LASTNAME";
-            LASTNAME.Name = "LASTNAME";
-            LASTNAME.Width = 140;
-            // 
-            // EMAIL
-            // 
-            EMAIL.HeaderText = "EMAIL";
-            EMAIL.Name = "EMAIL";
-            EMAIL.Width = 200;
-            // 
-            // GENDER
-            // 
-            GENDER.HeaderText = "GENDER";
-            GENDER.Name = "GENDER";
-            // 
-            // LANGUAGE
-            // 
-            LANGUAGE.HeaderText = "LANGUAGE";
-            LANGUAGE.Name = "LANGUAGE";
-            // 
-            // COUNTRY
-            // 
-            COUNTRY.HeaderText = "COUNTRY";
-            COUNTRY.Name = "COUNTRY";
-            COUNTRY.Width = 120;
-            // 
-            // IMAGENAME
-            // 
-            IMAGENAME.HeaderText = "IMAGENAME";
-            IMAGENAME.Name = "IMAGENAME";
-            IMAGENAME.Width = 120;
-            // 
-            // IMAGEPATH
-            // 
-            IMAGEPATH.HeaderText = "IMAGEPATH";
-            IMAGEPATH.Name = "IMAGEPATH";
-            IMAGEPATH.Width = 120;
-            // 
-            // IMAGE
-            // 
-            IMAGE.HeaderText = "IMAGE";
-            IMAGE.Name = "IMAGE";
-            IMAGE.Width = 150;
             // 
             // button5
             // 
@@ -454,14 +394,5 @@
         private Button btnImage;
         private DataGridView dataGridView1;
         private PictureBox pictureBox1;
-        private DataGridViewTextBoxColumn FIRSTNAME;
-        private DataGridViewTextBoxColumn LASTNAME;
-        private DataGridViewTextBoxColumn EMAIL;
-        private DataGridViewTextBoxColumn GENDER;
-        private DataGridViewTextBoxColumn LANGUAGE;
-        private DataGridViewTextBoxColumn COUNTRY;
-        private DataGridViewTextBoxColumn IMAGENAME;
-        private DataGridViewTextBoxColumn IMAGEPATH;
-        private DataGridViewTextBoxColumn IMAGE;
     }
 }
