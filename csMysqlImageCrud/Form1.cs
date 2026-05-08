@@ -68,6 +68,9 @@ namespace csMysqlImageCrud
                 dataGridView1.RowTemplate.Height = 70;
                 dataGridView1.DataSource = table;
 
+                //fit image in the datagridview cell
+                DataGridViewImageColumn dGVimageColumn = (DataGridViewImageColumn)dataGridView1.Columns[9];
+                dGVimageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
             }
             catch (Exception ex)
